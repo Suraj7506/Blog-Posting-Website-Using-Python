@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+
+    <main class="container my-4">
+     {% for post in post %}
+    <div class="col-md-10.5">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+         <img class="rounded-circle article-img" height='50px' width='50px' src="{{ url_for('static' , filename = 'pp/' + post.author.image_file) }}" alt = 'Not Found'>
+          <a href='/updatepost/{{ post.id }}'><h3 class="mb-0">{{ post.title }}</h3></a>
+          <div class="mb-1 text-muted">Posted on {{ post.date_post.strftime('%d-%m-%Y') }} by {{ post.author.username }}</div>
+          <p class="mb-auto">{{ post.data }}</p>
+          </div>
+          <div class='d-flex me-2'>
+          <a href='/deletepost/{{ post.id }}'>Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    {% endfor %}
+
+
+    
+    </main>
+
+    
+
+
+    
+{% endblock body %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container vh-200">
+    <div class="row justify-content-center h-100">
+        <div class="card w-60 my-auto shadow">
+            <form class='f1' method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group my-4 mx-4">
+                    <legend class="border-bottom my-4 mb-4">Create Your Post Here</legend>
+
+                    <div class="form-group my-4">
+                        {{ form.title.label(class="form-control-label") }} {% if form.title.errors %} {{ form.title(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.title.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.title(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                    <div class="form-group my-4">
+                        {{ form.post_data.label(class="form-control-label") }} {% if form.post_data.errors %} {{ form.post_data(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.post_data.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.post_data(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                </fieldset>
+
+                <div class="form-group my-4">
+                    {{ form.submit}}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock body %}

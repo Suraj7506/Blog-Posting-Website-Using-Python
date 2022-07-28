@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container">
+
+    <div class='row my-4'>
+            {% for user in user%}
+        <div class="col-lg-3 col-md-4 col-sm-12">
+
+            <div class="card shadow-lg">
+                    <img class="bd-placeholder-img card-img-top" style="height: 100px;
+                width: 100px;
+                align-items: center;" src='{{ url_for("static" , filename="pp/" + user.image_file)}}'>
+
+                <div class="card-body" style="align-items: center;">
+                    Username :- {{ user.username }}<br> Email :- {{ user.email }}<br> Bio :- {{ user.bio }}<br> Total
+                    Posts :- {{ post }}
+                    <form action="{{ url_for('viewaccs')}}" method="post">
+                    <button class="btn btn-primary" value={{user.id}} name="ID">delete</button>
+                    </form>
+                    <div class="d-flex justify-content-between align-items-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            {% endfor %}
+        
+        
+    </div>
+    {% endblock body %}

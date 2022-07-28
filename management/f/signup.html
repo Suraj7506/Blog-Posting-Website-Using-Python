@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% block body %}
+<div class="container my-4">
+    <div class="row justify-content-center h-100">
+        <div class="card my-auto shadow col-lg-6">
+
+            <form class='f1' method="POST">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group my-4 mx-4">
+                    <legend class="border-bottom my-4 mb-4">Please Signup Here </legend>
+                    <div class="form-group my-4">
+                        {{ form.username.label(class="form-control-label") }} {% if form.username.errors %} {{ form.username(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.username(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+
+                    <div class="form-group my-4">
+                        {{ form.email.label(class="form-control-label") }} {% if form.email.errors %} {{ form.email(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.email(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                    <div class="form-group my-4">
+                        {{ form.bio.label(class="form-control-label") }} {% if form.bio.errors %} {{ form.bio(class="form-control form-control-lg is-invalid")}}
+
+                        <div class="invalid-feedback">
+                            {% for error in form.bio.errors%}
+
+                            <span>{{ error }}</span> {% endfor %}
+
+
+                        </div>
+                        {% else %} {{ form.bio(class="form-control form-control-lg")}} {% endif %}
+
+                    </div>
+
+
+                    <div class="form-group my-4">
+                        {{ form.password.label(class="form-control-label") }} {% if form.password.errors %} {{ form.password(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.password(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                    <div class="form-group my-4">
+                        {{ form.cnfpass.label(class="form-control-label") }} {% if form.cnfpass.errors %} {{ form.cnfpass(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.cnfpass.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.cnfpass(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                </fieldset>
+
+                <div class="form-group my-4 mx-1">
+                    {{ form.submit(class="btn btn-primary mx-4")}}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock body %}

@@ -1,0 +1,37 @@
+ {% extends 'base.html' %} {% block body %}
+<div class="container">
+    <div class="row my-4 justify-content-center">
+        <div class="card my-4 shadow col-lg-6">
+
+            <form class='f1' method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group my-4 mx-4">
+                    <legend class="border-bottom my-4 mb-4">Login Here</legend>
+
+                    <div class="form-group my-4">
+                        {{ form.email.label(class="form-control-label") }} {% if form.email.errors %} {{ form.email(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.email(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                    <div class="form-group my-4">
+                        {{ form.password.label(class="form-control-label") }} {% if form.password.errors %} {{ form.password(class="form-control form-control-lg is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors%}
+                            <span>{{ error }}</span> {% endfor %}
+                        </div>
+                        {% else %} {{ form.password(class="form-control form-control-lg")}} {% endif %}
+                    </div>
+
+                </fieldset>
+
+                <div class="form-group my-4">
+                    {{ form.submit(class='btn btn-primary mx-4') }}
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock body %}
